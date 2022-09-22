@@ -26,11 +26,11 @@ namespace SkillsTracker.Controllers
         }
 
 
-        [HttpGet]
+        //[HttpGet]
         [Route("/skills/form")]
         public IActionResult Form()
         {
-            string html = "<form method='post' action= '/skills/form'>" +
+            string html = "<form method='post' action= '/skills/form/display'>" +
                 "<label for='date'>Date: </label><br />" +
                 "<input type='date' id='date' name='date'><br />" +
 
@@ -67,7 +67,8 @@ namespace SkillsTracker.Controllers
 
 
         [HttpPost]
-        public IActionResult Form(DateTime date, string csharp, string javascript, string python) 
+        [Route("skills/form/display")]
+        public IActionResult FormDisplay(DateTime date, string csharp, string javascript, string python) 
         {
             string html =
                 "<h1>" + date.ToShortDateString() + "</h1>" +
